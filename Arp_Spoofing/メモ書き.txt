@@ -1,0 +1,36 @@
+Gateway IP      : 192.168.1.1
+Gateway MAC     : 10:6f:3f:f:d2:2c
+
+Victim IP       : 192.168.1.147
+Victim MAC      : 2c:81:58:f4:88:27
+
+Attacker IP     : 192.168.1.147
+Attacker MAC    :38:f9:d3:34:6d:e1
+
+arpリクエストはブロードキャストで投げる
+
+arpとはipアドレスからMACアドレスを取得するプロトコル
+指定したipにデータを送りたい時、指定したipからMACアドレスを取得してそのMACアドレスにデータを投げる
+
+
+
+192.168.1.1
+def get_mac(ip_address):
+
+
+
+responses, unanswered = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.1.1"), timeout=2, retry=10)
+for s, r in responses:
+    print(r[Ether].src)
+    return r[Ether].src
+return None
+
+responses, unanswered = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=gateway_ip), timeout=2, retry=10)
+for s, r in responses:
+    print(r[Ether].src)
+    return r[Ether].src
+return 0
+
+victim_ip
+victim_mac
+

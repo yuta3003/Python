@@ -15,16 +15,7 @@ def main():
         hit = 0
         blow = 0
         count += 1
-        while True:
-            answer = input("4桁の数字を入力してください:")
-            if len(answer) != 4:           # 桁数チェック
-                print("桁数エラー")
-                continue
-            if len(answer) != len(set(answer)): # 被りがないかチェック
-                print("入力値エラー")
-                continue
-            print(answer)
-            break
+        answer = input_check()
 
         for i in range(4):
             for j in range(4):
@@ -44,6 +35,7 @@ def main():
             return 0
 
 
+# 問題用乱数生成部
 def create_question():
     create_no = [
         random.randint(0, 9),
@@ -59,6 +51,21 @@ def create_question():
         create_no[3] = random.randint(0,9)
 
     return create_no
+
+
+# 入力値チェック部
+def input_check():
+    while True:
+        ans = input("4桁の数字を入力してください:")
+        if len(ans) != 4:           # 桁数チェック
+            print("桁数エラー")
+            continue
+        if len(ans) != len(set(ans)): # 被りがないかチェック
+            print("入力値エラー")
+            continue
+        print(ans)
+        break
+    return ans
 
 
 if __name__ == '__main__':

@@ -1,20 +1,11 @@
 import random
 import sys
 
-while True:
+
+def main():
     nextGame = 0
-    question_no = [
-        random.randint(0, 9),
-        random.randint(0, 9),
-        random.randint(0, 9),
-        random.randint(0, 9)
-    ]
-    while (question_no[0] == question_no[1]):
-        question_no[1] = random.randint(0,9)
-    while (question_no[0] == question_no[2] or question_no[1] == question_no[2]):
-        question_no[2] = random.randint(0,9)
-    while (question_no[0] == question_no[3] or question_no[1] == question_no[3] or question_no[2] == question_no[3]):
-        question_no[3] = random.randint(0,9)
+    question_no = create_question()
+    print(question_no)
 
     count = 0
     print("*****************************************")
@@ -50,4 +41,26 @@ while True:
             print("          you win the game               ")
             print("*****************************************")
             print("回数:{}".format(str(count)))
-            sys.exit()
+            return 0
+
+
+def create_question():
+    create_no = [
+        random.randint(0, 9),
+        random.randint(0, 9),
+        random.randint(0, 9),
+        random.randint(0, 9)
+    ]
+    while (create_no[0] == create_no[1]):
+        create_no[1] = random.randint(0,9)
+    while (create_no[0] == create_no[2] or create_no[1] == create_no[2]):
+        create_no[2] = random.randint(0,9)
+    while (create_no[0] == create_no[3] or create_no[1] == create_no[3] or create_no[2] == create_no[3]):
+        create_no[3] = random.randint(0,9)
+
+    return create_no
+
+
+if __name__ == '__main__':
+    main()
+    sys.exit()

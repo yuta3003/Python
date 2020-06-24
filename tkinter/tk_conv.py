@@ -29,3 +29,20 @@ label2 = tk.Label(root, text="")
 label2.pack()
 
 root.mainloop()
+
+"""
+import tkinter as tk
+root = tk.Tk()
+label = tk.Label( root, text = '10進->16進変換')
+label.pack()
+e = tk.Entry( root )
+e.pack()
+def func():
+val = e.get()
+ans.config( text = hex( int(val) ))
+button = tk.Button(root, text='変換', command=func)
+button.pack()
+ans = tk.Label( root, text = "")
+ans.pack()
+root.mainloop()
+"""

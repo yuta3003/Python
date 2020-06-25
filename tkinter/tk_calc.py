@@ -6,7 +6,6 @@ answer = []
 def func(i):
     def x():
         answer.append(i)
-
     return x
 
 def func_clear():
@@ -14,41 +13,40 @@ def func_clear():
     answer.clear()
     
 def func_plus():
-    keep = "+"
-    answer.append(keep)
+    answer.append("+")
 
 def func_minus():
-    keep = "-"
-    answer.append(keep)
+    answer.append("-")
 
 def func_equal():
     answer.append("=")
+    # answerリストから数字と式に修正する
     keep = 0
     keep_list = []
-    for q in range(len(answer)):
-        if answer[q] == "+":
+    for num in range(len(answer)):
+        if answer[num] == "+":
             keep_list.append(keep)
             keep_list.append("+")
             keep = 0
-        elif answer[q] == "-":
+        elif answer[num] == "-":
             keep_list.append(keep)
             keep_list.append("-")
             keep = 0
-        elif answer[q] == "=":
+        elif answer[num] == "=":
             keep_list.append(keep)
         else:
             keep = str(keep)
-            a = str(answer[q])
-            keep += a
+            ans = str(answer[num])
+            keep += ans
             keep = int(keep)
-        q += 1
+
+    # 計算結果表示部
+    display_ans = ""
+    for kl in range(len(keep_list)):
+        display_ans += str(keep_list[kl])
     
-    kotae = ""
-    for w in range(len(keep_list)):
-        kotae += str(keep_list[w])
-    
-    kotae = eval(kotae)
-    e.insert(0, kotae)
+    display_ans = eval(display_ans)
+    e.insert(0, display_ans)
 
 
 

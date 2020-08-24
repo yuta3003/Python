@@ -23,12 +23,14 @@ def yes_no_input():
 def main():
     if yes_no_input():
         start = time.time()
-        pw = check(chars, 6)
 
-        if pw is None:
-            print('failure')
-        else:
-            print('パスワードが見つかりました!-->', pw)
+        for i in range(10):
+            pw = check(chars, i)
+            if pw is None:
+                print('failure')
+            else:
+                print('パスワードが見つかりました!-->', pw)
+                break
         
         finish = time.time() - start
         print(finish, '秒')
